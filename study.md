@@ -60,3 +60,12 @@ POST : 데이터베이스에 전송할 떄.
 ## MongoDB
 
 document-based DB - JSON - like document, obj처럼
+
+## Mongoose
+
+MongoDB를 node.js와 연결, Javascript를 사용.
+data를 불러오고 나서 render 해야함. - callback
+
+## CRUD
+
+CREAT, READ, UPDATE, DELETE
