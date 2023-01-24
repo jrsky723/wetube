@@ -64,8 +64,13 @@ document-based DB - JSON - like document, obj처럼
 ## Mongoose
 
 MongoDB를 node.js와 연결, Javascript를 사용.
-data를 불러오고 나서 render 해야함. - callback
+data를 불러오고 나서 render 해야함. - callback: 다른 함수의 인자로써 이용되는 함수,
 
 ## CRUD
 
 CREAT, READ, UPDATE, DELETE
+
+- pre save middleware
+- GET method로 얻은 form은 query로 얻을 수 있다.
+- regular expression으로 검색을 구현한다.
+  $regex: new RegExp(keyword, "i") : i는 대소문자 구분
