@@ -74,3 +74,18 @@ CREAT, READ, UPDATE, DELETE
 - GET method로 얻은 form은 query로 얻을 수 있다.
 - regular expression으로 검색을 구현한다.
   $regex: new RegExp(keyword, "i") : i는 대소문자 구분
+
+- hash function: deterministic function(결정적 함수)
+  bcrypt.js
+  hash를 여러번 해서 더 어렵게 만든다. (saltRound)
+
+- monodb $or: 조건 또는
+  const exists = await User.exists({ $or: [{ username }, { email }] });
+
+- POST 200 : OK
+  status 400 : 브라우저가 history를 저장하지 않게 해준다.
+  어떤 status를 보낼지 상황에 따라 나눠야한다.
+
+- Session: (middle ware)
+  memory, history between browser and backend
+  browser의 아이디를 백엔드에 보내줄 수 있다.
