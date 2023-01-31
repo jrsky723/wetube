@@ -86,6 +86,32 @@ CREAT, READ, UPDATE, DELETE
   status 400 : 브라우저가 history를 저장하지 않게 해준다.
   어떤 status를 보낼지 상황에 따라 나눠야한다.
 
-- Session: (middle ware)
-  memory, history between browser and backend
-  browser의 아이디를 백엔드에 보내줄 수 있다.
+## Session:
+
+- memory, history between browser and backend
+- browser의 아이디를 백엔드에 보내서 저장할 수 있다.
+- 고유아이디 - user끼리 구분 가능.
+- local은 pug에서 따로 추가없이 접근 가능하다. locals. 안 붙여도 됌. res.locals
+
+# Login 구현: session, cookies, locals
+
+1. express-session middleware 이용 : 매 request할 때마다 브라우저에 cookie 전달.
+
+- cookie는 request와 함께 전송.
+
+2. cookie: 백엔드가 브라우저에게 주는 정보, 매번 req 할 때, 브라우저는 알아서 cookie같이 보냄.
+3. 웹서버(백엔드)에 session, 브라우저에는 session ID를 가지는 cookie
+4. 브라우저마다 req.session이 다르다. (session이 다르기 떄문) - 브라우저 처음 실행시에 새로운 sessionID를 얻는다.
+5. Session은 object다. 임의로 추가 가능.
+6. Session data는 쿠키에 저장되지 않고, 백엔드의 wjwkdehlsek. 쿠키에는 session ID.
+7. session.saveUnitialized : session을 변경하지 않을때도 저장.
+8. 브라우저에서는 token방식이 아니어도 잘 작동함.
+
+## Github Login
+
+user를 github로 보낸다.
+
+## Node-fetch
+
+- fetch는 브라우저에만 존재하기 때문. 자바스크립트와 nodejs는 다른 플랫폼이다.
+- github에 user보냄, user : yes, access_token

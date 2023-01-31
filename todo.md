@@ -7,3 +7,7 @@
 - express application을 만든다.
 - middleware: 모든 controller가 middleware가 된다.
 - router에 parameter는 어떤 값이든 들어오게끔한다.
+
+## Github Login
+
+- api에 따라 여러가지 권한을 줄 수 있음.
