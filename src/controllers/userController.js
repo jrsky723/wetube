@@ -37,7 +37,8 @@ export const postJoin = async (req, res) => {
   }
 };
 
-export const getLogin = (req, res) => res.render("login", { pageTitle: "Login" });
+export const getLogin = (req, res) =>
+  res.render("login", { pageTitle: "Login" });
 
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
@@ -107,7 +108,9 @@ export const finishGithubLogin = async (req, res) => {
         },
       })
     ).json();
-    const emailObj = emailData.find((email) => email.primary === true && email.verified === true);
+    const emailObj = emailData.find(
+      (email) => email.primary === true && email.verified === true
+    );
     if (!emailObj) {
       //set notification
       return res.redirect("/login");
@@ -131,11 +134,46 @@ export const finishGithubLogin = async (req, res) => {
     return res.redirect("/login");
   }
 };
-
-export const edit = (req, res) => res.send("Edit User");
-export const remove = (req, res) => res.send("Remove User");
 export const logout = (req, res) => {
   req.session.destroy();
   return res.redirect("/");
 };
+export const getEdit = (req, res) => {
+  return res.render("edit-profile", { pageTitle: "Edit Profile" });
+};
+export const postEdit = async (req, res) => {
+  const {
+    session: {
+      user: { _id, username: sessionUsername, email: sessionEmail },
+    },
+    body: { name, email, username, location },
+  } = req;
+
+  const usernameExists =
+    username !== sessionUsername ? await User.exists({ username }) : undefined;
+  const emailExists =
+    email !== sessionEmail ? await User.exists({ email }) : undefined;
+  if (usernameExists || emailExists) {
+    return res.status(400).render("edit-profile", {
+      pageTitle: "Edit Profile",
+      usernameErrorMessage: usernameExists
+        ? "This username is already taken"
+        : false,
+      emailErrorMessage: emailExists ? "This email is already taken" : false,
+    });
+  }
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      name,
+      email,
+      username,
+      location,
+    },
+    { new: true }
+  );
+  req.session.user = updatedUser;
+  return res.redirect("/users/edit");
+};
+export const edit = (req, res) => res.send("Edit User");
 export const see = (req, res) => res.send("See User");

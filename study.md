@@ -115,3 +115,5 @@ user를 github로 보낸다.
 
 - fetch는 브라우저에만 존재하기 때문. 자바스크립트와 nodejs는 다른 플랫폼이다.
 - github에 user보냄, user : yes, access_token
+
+* Router를 보호하는 middleware, 로그인이 되었을 때만, edit-profile에 접근할 수 있어야한다.
