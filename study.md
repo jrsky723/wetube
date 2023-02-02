@@ -117,3 +117,24 @@ user를 github로 보낸다.
 - github에 user보냄, user : yes, access_token
 
 * Router를 보호하는 middleware, 로그인이 되었을 때만, edit-profile에 접근할 수 있어야한다.
+
+## File Upload
+
+- multer : input으로 avatar를 받아 uploads 폴더에 저장 후, postEdit에 파일 전달.
+- DB에 파일을 저장을 하면 안된다. 대신 폴더에 파일을 저장하고, DB에는 그 파일의 위치만 저장한다.
+- app.use("/uploads", express.static(uploads)) : static: 노출시킨다.
+- upload폴더를 만드는법: 서버에 저장하는 방법, 별로 좋지 않다.
+
+## User Profile
+
+- public일때는 url에서 user_id를 가져온다.
+
+## Video Owner
+
+- populate를 하면 reference된(ObjectId) object가 그대로 전달이 된다.
+
+## Bugfix
+
+- hash가 save 할 때마다 되는 것을 해결. isModified("password") : password가 바뀔 때만
+- edit,delete video가 owner일 때만 접속가능해야함.
+- 프론트에서 가린다고 하더라도, 백엔드에서도 보호해줘야한다.
