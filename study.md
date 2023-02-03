@@ -138,3 +138,9 @@ user를 github로 보낸다.
 - hash가 save 할 때마다 되는 것을 해결. isModified("password") : password가 바뀔 때만
 - edit,delete video가 owner일 때만 접속가능해야함.
 - 프론트에서 가린다고 하더라도, 백엔드에서도 보호해줘야한다.
+
+## Webpack
+
+- js, scss (sexy code)를 javascript, css (boring code)로 변경함. 업계표준, 대체제로 gulp가 있음. 직접사용할 일이 없다. React에서 Webpack이 내장되어있음. 직접 노출시키지 않는다.
+- entry: source code
+- use는 역순으로 진행된다.use: ["styles-loader", "css-loader", "sass-loader"],

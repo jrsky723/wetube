@@ -7,7 +7,6 @@ export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 export const postJoin = async (req, res) => {
   const { name, username, email, password, password2, location } = req.body;
   const pageTitle = "Join";
-  const user = await User.findOne({ username, socialOnly: false });
   if (password !== password2) {
     return res.status(400).render("join", {
       pageTitle,
