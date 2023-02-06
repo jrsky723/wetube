@@ -132,6 +132,7 @@ user를 github로 보낸다.
 ## Video Owner
 
 - populate를 하면 reference된(ObjectId) object가 그대로 전달이 된다.
+- double populate: path: 가장먼저 populate, 그 뒤에 populate~
 
 ## Bugfix
 
