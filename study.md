@@ -145,3 +145,16 @@ user를 github로 보낸다.
 - js, scss (sexy code)를 javascript, css (boring code)로 변경함. 업계표준, 대체제로 gulp가 있음. 직접사용할 일이 없다. React에서 Webpack이 내장되어있음. 직접 노출시키지 않는다.
 - entry: source code
 - use는 역순으로 진행된다.use: ["styles-loader", "css-loader", "sass-loader"],
+
+## Views API
+
+- Wetube: SSR(Server Side Rendering): 벡엔드에서 렌더링을 해줌. 요즘에는 React - FrontEnd, NodeJS - backEnd
+- 여기서는 templete을 rendering 하지 않는 방법으로 진행
+- video만의 event를 이용한다. (https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement)
+- data attribute : html에서 데이터를 저장.
+- render or redirect를 하지 않고, 변경 할 때, status(200)만 보낼 때는 sendStatus, return 해줌.
+
+## Video Recorder
+
+- mediaDevices: 마이크, 카메라와 같은 미디어 장비에 접근 하도록한다.
+- removeEventListener -> addEventListner: 절차적으로 가능
