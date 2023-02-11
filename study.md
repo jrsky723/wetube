@@ -158,3 +158,15 @@ user를 github로 보낸다.
 
 - mediaDevices: 마이크, 카메라와 같은 미디어 장비에 접근 하도록한다.
 - removeEventListener -> addEventListner: 절차적으로 가능
+
+## Webassembly Video Transcode
+
+- FFmpeg: 미디어 파일 압축, 포맷 변환, 추출, 스크린샷 등 여러가지 기능 가능.
+- URL을 통해, 해당 파일을 가르키는 URL생성 가능.
+- video + thumbnail을 post해야함. req.files로 여러개 받을 수 있음
+
+## Flash Messages
+
+- Flash message middleware를 install -> use 하는 과정
+
+## Comment Section
