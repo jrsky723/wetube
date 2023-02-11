@@ -170,3 +170,9 @@ user를 github로 보낸다.
 - Flash message middleware를 install -> use 하는 과정
 
 ## Comment Section
+
+- text에 접근 할 수 있는 middleware use (text)
+- request body에 obj를 보내야할 때, string으로 보낸다.
+- JSON.stringify : JS OBJ -> String, JSOBJ가 아니다. string을 JSON으로 바꿔주는 Express middleware : JSON
+- express에게 json을 보낸다는 것을 알려줘야함. headers : "Content-Type" : "application/json"
+- fetch를 통해, cookie를 보내게 된다.
