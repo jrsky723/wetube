@@ -195,4 +195,11 @@ user를 github로 보낸다.
 - 웹사이트를 쉽게 배포할 수 있는 사이트.
 - Heroku에 백엔드를 업로드하기 위해 두가지 방법, 1. Heroku Git, 2. Github
 - Heroku Remote를 만들어서 push, commit을 할 수 있다.
-- Heroku는 오직 내 git history만 볼 수 있다. 즉 커밋을 해야한다.
+- Heroku는 오직 내 git history만 볼 수 있다. 즉 커밋을 해야한다. (package.json commit이 안되서 start안됨.)
+- .env파일이 git에 없어 mogoose 사용안됨.
+
+> Mongo Atlas
+
+- 나의 DB의 접근하기 위해. (웹 배포)
+- DB URL을 Heroku APP에 저장한다.
+- Heroku가 준 PORT를 사용해야하므로, process.env.PORT 를 사용.
