@@ -176,3 +176,23 @@ user를 github로 보낸다.
 - JSON.stringify : JS OBJ -> String, JSOBJ가 아니다. string을 JSON으로 바꿔주는 Express middleware : JSON
 - express에게 json을 보낸다는 것을 알려줘야함. headers : "Content-Type" : "application/json"
 - fetch를 통해, cookie를 보내게 된다.
+
+## Deployment
+
+> Build Server
+
+- 서버를 아마존에 보내줘야한다. babel-node: 자바스크립트 코드를 실행시켜줌. but performance 문제, babel CLI사용.
+- babel은 backend만 build 하도록 한다.
+- 개발할때는 babel을 통해 node.js가 이해하도록하고, 개발을 완료했을 때는 build를 하고나서, build/init.js를 node로 실행.
+- pug파일 들은 옮겨지지 않는다. (front) 하지만, 폴더위치가 cwd부터 시작이므로, 접근 가능. 이를 변경 해줘야함.
+
+> Build Assets
+
+- webpack의 watch 기능은 development모드에서만 true로 해준다. 즉 command에 watch를 따로 구분하여 추가해준다.
+
+> Heroku
+
+- 웹사이트를 쉽게 배포할 수 있는 사이트.
+- Heroku에 백엔드를 업로드하기 위해 두가지 방법, 1. Heroku Git, 2. Github
+- Heroku Remote를 만들어서 push, commit을 할 수 있다.
+- Heroku는 오직 내 git history만 볼 수 있다. 즉 커밋을 해야한다.
