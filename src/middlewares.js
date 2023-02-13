@@ -10,9 +10,17 @@ const s3 = new S3Client({
   },
 });
 
-const multerUploader = multerS3({
+const isHeroku = process.env.NODE_ENV == "production";
+
+const s3ImageUploader = multerS3({
   s3: s3,
-  bucket: "wetube-jrsky723",
+  bucket: "wetube-jrsky723/images",
+  acl: "public-read",
+});
+
+const s3VideoUploader = multerS3({
+  s3: s3,
+  bucket: "wetube-jrsky723/videos",
   acl: "public-read",
 });
 
@@ -20,6 +28,7 @@ export const localsMiddleWare = (req, res, next) => {
   res.locals.loggedIn = Boolean(req.session.loggedIn);
   res.locals.siteName = "Wetube";
   res.locals.loggedInUser = req.session.user || {};
+  res.locals.isHeroku = isHeroku;
   next();
 };
 
@@ -46,11 +55,11 @@ export const avatarUpload = multer({
   limits: {
     fileSize: 30000000,
   },
-  storage: multerUploader,
+  storage: isHeroku ? s3ImageUploader : undefined,
 });
 
 export const videoUpload = multer({
   dest: "uploads/videos/",
   limits: { fileSize: 100000000 },
-  storage: multerUploader,
+  storage: isHeroku ? s3VideoUploader : undefined,
 });
